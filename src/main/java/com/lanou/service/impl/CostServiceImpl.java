@@ -85,6 +85,11 @@ public class CostServiceImpl implements CostService {
         return queryCostSortByPage(pageNo, pageSize, choose);
     }
 
+    //查询全部
+    public List<Cost> findAllCost() {
+        return costMapper.findAllCost();
+    }
+
     //按顺序查询--分页
     public PageInfo<Cost> queryCostSortByPage(
             Integer pageNo, Integer pageSize, Integer choose) {

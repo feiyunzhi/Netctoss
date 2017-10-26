@@ -82,4 +82,36 @@ public class ServiceServiceImpl implements ServiceService {
 
         return true;
     }
+
+    //添加ser
+    public Service addService(Service service) {
+        String unixHost = service.getUnixHost();
+        Service serByHost = serviceMapper.findSerByHost(unixHost);
+        // != null  unix_host已经注册过账号
+        if (serByHost != null){
+            return serByHost;
+        }
+
+        serviceMapper.insertSelective(service);
+        return service;
+    }
+
+    public PageInfo<Service> fuzzySearchForSer(String idcardNo, Service service, Integer pageNo, Integer pageSize) {
+
+        //判断参数的合法性
+        pageNo = pageNo == null ? 1 : pageNo;
+        pageSize = pageSize == null ? 3 : pageSize;
+
+        PageHelper.startPage(pageNo, pageSize);
+
+        System.out.println("22:--" );
+        //获取全部的account
+        List<Service> allService = serviceMapper.fuzzySearchForSer(service,idcardNo);
+
+        System.out.println("33:--" );
+        //使用pageInfo对结果进行包装
+        PageInfo<Service> pageInfo = new PageInfo<Service>(allService);
+
+        return pageInfo;
+    }
 }

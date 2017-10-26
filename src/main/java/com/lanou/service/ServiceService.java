@@ -14,4 +14,9 @@ public interface ServiceService {
     Service updateSerStatusById(Service service);
 
     boolean delSerById(Service service);
+
+    Service addService(Service service);
+
+    PageInfo<Service> fuzzySearchForSer(String idcardNo, Service service, Integer pageNo, Integer pageSize);
+
 }

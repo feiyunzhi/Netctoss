@@ -1,6 +1,7 @@
 package com.lanou.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.lanou.bean.Account;
 import com.lanou.bean.Cost;
 import com.lanou.service.CostService;
 import com.lanou.utils.AjaxResult;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -120,6 +123,16 @@ public class CostController{
     public boolean update_Cost(@Param("cost") Cost cost) {
         return costService.editCost(cost);
     }
+
+    //查询资费类型 - 去重
+    @ResponseBody
+    @RequestMapping(value = "/findAllCost", method = RequestMethod.POST)
+    public List<Cost> findNameDistinct() {
+        return costService.findAllCost();
+    }
+
+
+
 
 
     public HttpServletRequest getRequest() {

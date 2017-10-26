@@ -46,7 +46,6 @@
         //实时 获取生日
         function aa() {
             var val = $("#idcardNo").val();
-
             var str = val.substring(6, 14);
             var birthdate = str.substring(0, 4) + "-" + str.substring(4, 6) + "-" + str.substring(6);
             $("#birthdate").attr("value", birthdate);

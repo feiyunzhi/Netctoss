@@ -77,5 +77,24 @@ public class ServiceController {
         return serviceService.delSerById(service);
     }
 
+    //添加ser
+    @ResponseBody
+    @RequestMapping(value = "/submSerInfo",method = RequestMethod.POST)
+    public Service submCostInfo(@Param("service")Service service){
+        return serviceService.addService(service);
+    }
 
+    //模糊查询
+    @ResponseBody
+    @RequestMapping(value = "/fuzzySearchForSer",method = RequestMethod.POST)
+    public AjaxResult fuzzySearchForSer(@Param("idcardNo")String idcardNo,
+                                        @Param("service")Service service,
+                                        @Param("pageNo")Integer pageNo,
+                                        @Param("pageSize")Integer pageSize){
+        System.out.println("111:--" );
+        System.out.println(idcardNo);
+        System.out.println(service);
+        PageInfo<Service> service1 = serviceService.fuzzySearchForSer(idcardNo,service,pageNo,pageSize);
+        return new AjaxResult(service1);
+    }
 }

@@ -19,4 +19,8 @@ public interface ServiceMapper {
 
     List<Service> findAllService();
 
+    Service findSerByHost(String unixHost);
+
+    List<Service> fuzzySearchForSer(Service service, String idcardNo);
+
 }
