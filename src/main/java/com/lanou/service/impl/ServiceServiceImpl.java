@@ -92,6 +92,8 @@ public class ServiceServiceImpl implements ServiceService {
             return serByHost;
         }
 
+        service.setCreateDate(new Date());
+        service.setStatus("1");
         serviceMapper.insertSelective(service);
         return service;
     }
@@ -104,11 +106,13 @@ public class ServiceServiceImpl implements ServiceService {
 
         PageHelper.startPage(pageNo, pageSize);
 
-        System.out.println("22:--" );
         //获取全部的account
-        List<Service> allService = serviceMapper.fuzzySearchForSer(service,idcardNo);
+        List<Service> allService = serviceMapper.fuzzySearchForSer(
+                service.getStatus(),
+                service.getUnixHost(),
+                service.getOsUsername(),
+                idcardNo);
 
-        System.out.println("33:--" );
         //使用pageInfo对结果进行包装
         PageInfo<Service> pageInfo = new PageInfo<Service>(allService);
 

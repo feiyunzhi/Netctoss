@@ -124,7 +124,7 @@ public class CostController{
         return costService.editCost(cost);
     }
 
-    //查询资费类型 - 去重
+    //查询资费类型
     @ResponseBody
     @RequestMapping(value = "/findAllCost", method = RequestMethod.POST)
     public List<Cost> findNameDistinct() {

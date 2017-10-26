@@ -11,7 +11,7 @@
     <result column="pause_date" jdbcType="VARCHAR" property="pauseDate" />
     <result column="close_date" jdbcType="VARCHAR" property="closeDate" />
     <result column="real_name" jdbcType="VARCHAR" property="realName" />
-    <result column="idcard_no" jdbcType="CHAR" property="idcardNo" />
+      <result column="idcard_no" jdbcType="CHAR" property="idcardNo" />
     <result column="birthdate" jdbcType="VARCHAR" property="birthdate" />
     <result column="gender" jdbcType="CHAR" property="gender" />
     <result column="occupation" jdbcType="VARCHAR" property="occupation" />

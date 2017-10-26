@@ -1,6 +1,7 @@
 package com.lanou.mapper;
 
 import com.lanou.bean.Service;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,6 +22,9 @@ public interface ServiceMapper {
 
     Service findSerByHost(String unixHost);
 
-    List<Service> fuzzySearchForSer(Service service, String idcardNo);
+    List<Service> fuzzySearchForSer(@Param("status") String status,
+                                    @Param("unixHost")String unixHost,
+                                    @Param("osUsername")String osUsername,
+                                    @Param("idcardNo") String idcardNo);
 
 }

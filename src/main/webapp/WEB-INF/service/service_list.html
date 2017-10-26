@@ -98,7 +98,7 @@
                 .append($("<td></td>").html(Elp.account.realName))
                 .append($("<td></td>").html(Elp.osUsername))
                 .append($("<td></td>").html(statu))
-                .append($("<td></td>").html(Elp.account.lastLoginIp))
+                .append($("<td></td>").html(Elp.unixHost))
                 .append($("<td></td>").append($("<a class='summary' onmouseover='showDetail(true,this);' onmouseout='showDetail(false,this);'>").html(Elp.cost.name))
                     .append($("<div class='detail_info'></div>").html(Elp.cost.descr)))
                 .append($("<td></td>")
@@ -117,7 +117,7 @@
                 .append($("<td></td>").html(Elp.account.realName))
                 .append($("<td></td>").html(Elp.osUsername))
                 .append($("<td></td>").html(statu))
-                .append($("<td></td>").html(Elp.account.lastLoginIp))
+                .append($("<td></td>").html(Elp.unixHost))
                 .append($("<td></td>").append($("<a class='summary' onmouseover='showDetail(true,this);' onmouseout='showDetail(false,this);'>").html(Elp.cost.name))
                     .append($("<div class='detail_info'></div>").html(Elp.cost.descr)))
                 .append($("<td></td>")
@@ -135,7 +135,7 @@
                 .append($("<td></td>").html(Elp.account.realName))
                 .append($("<td></td>").html(Elp.osUsername))
                 .append($("<td></td>").html(statu))
-                .append($("<td></td>").html(Elp.account.lastLoginIp))
+                .append($("<td></td>").html(Elp.unixHost))
                 .append($("<td></td>").append($("<a class='summary' onmouseover='showDetail(true,this);' onmouseout='showDetail(false,this);'>").html(Elp.cost.name))
                     .append($("<div class='detail_info'></div>").html(Elp.cost.descr)))
                 .append($("<td></td>")))
@@ -413,7 +413,6 @@
                 }
             });
         }
-
 
         service_list()
     </script>

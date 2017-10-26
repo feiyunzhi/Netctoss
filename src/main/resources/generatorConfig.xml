@@ -41,7 +41,7 @@
 
         <!--&lt;!&ndash; !!!! Table Configurations !!!! &ndash;&gt;-->
         <!--&lt;!&ndash;tableName 数据库表名&ndash;&gt;-->
-        <!--<table tableName="service" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+        <!--<table tableName="module_info" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--enableUpdateByExample="false"/>-->
     <!--</context>-->
 <!--</generatorConfiguration>-->
