@@ -12,6 +12,7 @@
                 showResultDiv(true);
                 window.setTimeout("showResultDiv(false);", 3000);
             }
+
             function showResultDiv(flag) {
                 var divResult = document.getElementById("save_result_info");
                 if (flag)
@@ -23,11 +24,26 @@
             //自动查询账务账号
             function searchAccounts(txtObj) {
                 //document.getElementById("a1").innerHTML = txtObj.value;
+                $.ajax({
+                    url:"/findInfo",
+                    type:"post",
+                    data:{
+                        accountId:txtObj.value
+                    },
+                    success:function (result) {
+                        //null - 没有此财务账号
+                        if (result == null || result == ""){
+                            document.getElementById("errorForAccId").style.display = "block";
+                        }else {
+                            document.getElementById("errorForAccId").style.display = "none";
+                        }
+                    }
+                })
             }
 
 
+            //通过身份证查询财务账号
             function findIdCard() {
-
                 $.ajax({
                     url:"/findByIdCard",
                     type:"post",
@@ -35,23 +51,16 @@
                         idcardNo:$("#idCard").val()
                     },
                     success:function (result) {
-                        //
-                        if (result == null){
-
+                        //null - 身份证无效
+                        if (result == null || result == ""){
+                            document.getElementById("errorForIdCard").style.display = "block";
+                        }else {
+                            document.getElementById("errorForIdCard").style.display = "none";
+                            $("#accountId").attr("value",result.accountId);
                         }
                     }
-
-
                 })
-
-
-
-
             }
-
-
-
-
         </script>
     </head>
     <body>
@@ -88,13 +97,13 @@
                     <input type="text" id="idCard" value="" class="width180" />
                     <input type="button" value="查询账务账号" onclick="findIdCard()" class="btn_search_large" />
                     <span class="required">*</span>
-                    <div style="display: none" class="validate_msg_short">没有此身份证号，请重新录入。</div>
+                    <div id="errorForIdCard" style="display: none" class="validate_msg_short">没有此身份证号，请重新录入。</div>
                 </div>
                 <div class="text_info clearfix"><span>账务账号：</span></div>
                 <div class="input_info">
-                    <input type="text" value="zhangsan1" onkeyup="searchAccounts(this);" />
+                    <input type="text" id="accountId" value="" onkeyup="searchAccounts(this);" />
                     <span class="required">*</span>
-                    <div style="display: none" class="validate_msg_long">没有此账务账号，请重新录入。</div>
+                    <div id="errorForAccId" style="display: none" class="validate_msg_long">没有此账务账号，请重新录入。</div>
                 </div>
                 <div class="text_info clearfix"><span>资费类型：</span></div>
             <div class="input_info">

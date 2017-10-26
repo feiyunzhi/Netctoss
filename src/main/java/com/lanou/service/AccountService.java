@@ -27,5 +27,5 @@ public interface AccountService {
 
     PageInfo<Account> fuzzySearch(Account account,Integer pageNo,Integer pageSize);
 
-    Account findByIdCard(String idcaedNo);
+    Account findByIdCard(String idcardNo);
 }

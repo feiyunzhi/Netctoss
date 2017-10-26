@@ -148,8 +148,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     //通过idcard查询
-    public Account findByIdCard(String idcaedNo) {
-        return accountMapper.findAccByIdCard(idcaedNo);
+    public Account findByIdCard(String idcardNo) {
+        return accountMapper.findAccByIdCard(idcardNo);
     }
 
 

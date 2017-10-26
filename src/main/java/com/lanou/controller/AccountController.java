@@ -142,8 +142,8 @@ public class AccountController {
     //通过身份证查询Acc
     @ResponseBody
     @RequestMapping(value = "/findByIdCard",method = RequestMethod.POST)
-    public Account findByIdCard(@Param("idcardNo")String idcaedNo){
-        return accountService.findByIdCard(idcaedNo);
+    public Account findByIdCard(@Param("idcardNo")String idcardNo){
+        return accountService.findByIdCard(idcardNo);
     }
 
     public HttpServletRequest getRequest() {
