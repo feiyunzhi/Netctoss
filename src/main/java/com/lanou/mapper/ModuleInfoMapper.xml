@@ -14,7 +14,13 @@
     from module_info
     where module_id = #{moduleId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="findModByRoleId" resultMap="BaseResultMap">
+
+      SELECT * FROM module_info WHERE module_id IN
+      (SELECT module_id FROM role_module WHERE role_id =#{roleId})
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from module_info
     where module_id = #{moduleId,jdbcType=INTEGER}
   </delete>
